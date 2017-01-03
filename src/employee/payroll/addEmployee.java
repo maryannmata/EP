@@ -561,7 +561,7 @@ PreparedStatement pst = null;
         txt_apt.setText("");
         txt_doj.setText("");
         txt_search.setText("");
-        
+        img.
         txt_design.setText("");
         r_male.setText("");
         r_female.setText("");

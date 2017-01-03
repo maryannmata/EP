@@ -460,7 +460,7 @@ public class deductions extends javax.swing.JFrame {
                         
             }
             catch(Exception e){
-                JOptionPane.showMessageDialog(null, e)
+      //          JOptionPane.showMessageDialog(null, e)
             }
             finally{
                 try{
@@ -469,18 +469,20 @@ public class deductions extends javax.swing.JFrame {
                 }
             
                 catch(Exception e){
-                    JOptionPane.showMessageDialog(null, e)
+           //         JOptionPane.showMessageDialog(null, e)
                 }
                 
-                        
+                      
             
             
         
         
         
-        
+               
     }//GEN-LAST:event_jButton1ActionPerformed
-
+        }
+    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         // Button clear code here:
@@ -505,17 +507,17 @@ public class deductions extends javax.swing.JFrame {
         // TODO add your handling code here:
         // calculate code here:
         
-        int salary = Integer.parseInt(txt_salary.getText());
-        if(r_percentage.isSelected()==true){
-            int percentage = Integer.parseInt(txt_percentage.getText());
+      //  int salary = Integer.parseInt(txt_salary.getText());
+        //if(r_percentage.isSelected()==true){
+          //  int percentage = Integer.parseInt(txt_percentage.getText());
             
             // calculate the total hours of overtime
             
-            int total_percentage_deduction = salary/100 * percentage;
-            String x = String.valueOf(total_percentage_deduction);
-            int sal = salary - total_percentage_deduction;
+            //int total_percentage_deduction = salary/100 * percentage;
+            //String x = String.valueOf(total_percentage_deduction);
+            //int sal = salary - total_percentage_deduction;
             
-        }
+        //}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -438,7 +438,7 @@ public class deductions extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //Save button hadling code here:
-        
+        //
         int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to add record?", "Add Record",JOptionPane.YES_NO_OPTION);
         if(p==0){
             

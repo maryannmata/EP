@@ -15,7 +15,7 @@ public class db {
     
     
 
-         Connection conn = null;
+//         Connection conn = null;
     public static Connection java_db(){
 
     try{

@@ -98,7 +98,6 @@ PreparedStatement pst = null;
         jLabel10 = new javax.swing.JLabel();
         txt_bonus = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txt_other = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txt_hw = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -110,8 +109,11 @@ PreparedStatement pst = null;
         jButton3 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         lbl_empid = new javax.swing.JLabel();
+        txt_other = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Allowance");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Employee ID:");
@@ -171,8 +173,6 @@ PreparedStatement pst = null;
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setText("Other:");
 
-        txt_other.setText("0");
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Total Overtime:");
 
@@ -213,6 +213,8 @@ PreparedStatement pst = null;
         jLabel16.setText("Logged In As:");
 
         lbl_empid.setText("emp");
+
+        txt_other.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,29 +267,33 @@ PreparedStatement pst = null;
                                             .addComponent(txt_other)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbl_empid))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(27, 27, 27)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_empid))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14))
-                        .addGap(36, 36, 36)
+                            .addComponent(jLabel13))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_rate)
+                            .addComponent(txt_hw, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_total)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_rate)
-                                .addComponent(txt_hw, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))))
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(27, 27, 27)
+                                .addComponent(lbl_total))
+                            .addComponent(jButton2)
+                            .addComponent(jButton3))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,17 +340,15 @@ PreparedStatement pst = null;
                     .addComponent(txt_dep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(lbl_total))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -446,13 +450,13 @@ PreparedStatement pst = null;
         // Calculate code here:
         
         
-        int salary = Integer.parseInt(txt_salary.getText());
-        int overtime = Integer.parseInt(txt_overtime.getText());
+        double salary = Integer.parseInt(txt_salary.getText());
+        double overtime = Integer.parseInt(txt_overtime.getText());
         
         double eight = 8;
         double days = 25;
         double dbop = 0;
-        double overtimeRate = 1.5;
+        double overtimeRate = 1.3;
         
         // calculate the total hours of overtime
         double Total_Overtime = overtime * overtimeRate;

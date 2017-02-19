@@ -8,6 +8,7 @@ package employee.payroll;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+
 /**
  *
  * @author Mata
@@ -35,12 +36,50 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
         jButton1 = new javax.swing.JButton();
         lbl_emp = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btn_update = new javax.swing.JButton();
+        btn_allowance = new javax.swing.JButton();
+        btn_deduction = new javax.swing.JButton();
+        btn_addemployee = new javax.swing.JButton();
+        btn_search = new javax.swing.JButton();
+        btn_payment = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Employee Payroll System");
+        setBackground(new java.awt.Color(204, 255, 255));
+        setResizable(false);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("Logout");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,32 +91,113 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel2.setText("Logged In As:");
 
+        btn_update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/g.png"))); // NOI18N
+        btn_update.setText("Update salary");
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateActionPerformed(evt);
+            }
+        });
+
+        btn_allowance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_allowance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/32724.png"))); // NOI18N
+        btn_allowance.setText("Allowance");
+        btn_allowance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_allowanceActionPerformed(evt);
+            }
+        });
+
+        btn_deduction.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn_deduction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/minus-5-xxl.png"))); // NOI18N
+        btn_deduction.setText("Deduction");
+        btn_deduction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deductionActionPerformed(evt);
+            }
+        });
+
+        btn_addemployee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_addemployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/a.png"))); // NOI18N
+        btn_addemployee.setText("Add Employee");
+        btn_addemployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addemployeeActionPerformed(evt);
+            }
+        });
+
+        btn_search.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/search2.png"))); // NOI18N
+        btn_search.setText("Search");
+        btn_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchActionPerformed(evt);
+            }
+        });
+
+        btn_payment.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_payment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/pay-payment-icon-9.png"))); // NOI18N
+        btn_payment.setText("Payment");
+        btn_payment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_paymentActionPerformed(evt);
+            }
+        });
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(21, 21, 21))
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_addemployee)
+                    .addComponent(btn_allowance, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_deduction, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_update)
+                    .addComponent(btn_payment, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(140, 140, 140))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_addemployee)
+                    .addComponent(btn_update))
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lbl_emp))
-                .addGap(30, 30, 30))
+                    .addComponent(btn_deduction)
+                    .addComponent(btn_payment))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_allowance)
+                    .addComponent(btn_search))
+                .addGap(60, 60, 60)
+                .addComponent(jButton1)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_emp)
+                    .addComponent(jLabel2))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
+
+        btn_update.getAccessibleContext().setAccessibleName("Upadate Salary");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +210,59 @@ public class MainMenu extends javax.swing.JFrame {
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
+        // TODO add your handling code here:
+        
+                        UpdateSalary b = new UpdateSalary();
+                        b.setVisible(true);
+                        this.dispose();
+                        
+    }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void btn_deductionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deductionActionPerformed
+        // TODO add your handling code here:
+        
+                        Allowance a = new Allowance();
+                        a.setVisible(true);
+                        this.dispose();
+                        
+    }//GEN-LAST:event_btn_deductionActionPerformed
+
+    private void btn_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addemployeeActionPerformed
+  // TODO add your handling code here:
+  
+              
+                        addEmployee j = new addEmployee();
+                        j.setVisible(true);
+                        this.dispose();
+                        
+  
+    }//GEN-LAST:event_btn_addemployeeActionPerformed
+
+    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btn_searchActionPerformed
+
+    private void btn_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_paymentActionPerformed
+        // TODO add your handling code here:
+        
+                        searchempsalary c = new searchempsalary();
+                        c.setVisible(true);
+                        this.dispose();
+                        
+        
+    }//GEN-LAST:event_btn_paymentActionPerformed
+
+    private void btn_allowanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_allowanceActionPerformed
+        // TODO add your handling code here:
+        
+                        Allowance d = new Allowance();
+                        d.setVisible(true);
+                        this.dispose();
+    }//GEN-LAST:event_btn_allowanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,8 +300,18 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_addemployee;
+    private javax.swing.JButton btn_allowance;
+    private javax.swing.JButton btn_deduction;
+    private javax.swing.JButton btn_payment;
+    private javax.swing.JButton btn_search;
+    private javax.swing.JButton btn_update;
     private javax.swing.JButton jButton1;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lbl_emp;
     // End of variables declaration//GEN-END:variables
 }

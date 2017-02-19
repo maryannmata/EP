@@ -211,12 +211,16 @@ PreparedStatement pst = null;
     private void txt_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyReleased
         // TODO add your handling code here:
         //Generate Search handling code here:
+        int count=0;
+        if ( evt.getKeyCode()==10){
         try{
          String sql ="select * from Staff_information where id=? ";
          
              pst=conn.prepareStatement(sql);
             pst.setString(1, txt_search.getText());
             rs=pst.executeQuery();
+            
+                while(rs.next()){
             
                 String add1 = rs.getString("id");
                 txt_id.setText(add1);
@@ -247,11 +251,19 @@ PreparedStatement pst = null;
                 
                 String add10 = rs.getString("Designation");
                 txt_posistion.setText(add10);
+                count++;
                 
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "No Data");
+         if (count==0)  {JOptionPane.showMessageDialog(null, "No Data");}
         }
+        catch(Exception e){
+            if (count==0) {
+            JOptionPane.showMessageDialog(null, "No Data");
+            
+           
+            }
+        }
+       
         finally{
             try{
                 rs.close();
@@ -262,7 +274,7 @@ PreparedStatement pst = null;
             }
             
         }
-        
+        }
         
         
         

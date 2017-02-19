@@ -86,36 +86,52 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DateTime = new javax.swing.JLabel();
+        jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
         DateTime1 = new javax.swing.JLabel();
         EmployeeID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        TimeIn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         Password = new javax.swing.JPasswordField();
         TimeOut = new javax.swing.JButton();
+        TimeIn = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(51, 51, 51));
+        setTitle("Employee Login");
+        setBackground(new java.awt.Color(0, 0, 153));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 500));
 
-        DateTime1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        DateTime1.setForeground(new java.awt.Color(51, 51, 0));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        DateTime1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        DateTime1.setForeground(new java.awt.Color(255, 255, 255));
         DateTime1.setText("Employee ID:");
+        jPanel1.add(DateTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 110, 130, 26));
+        jPanel1.add(EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 220, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Password:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 130, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 220, 31));
 
-        TimeIn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TimeIn.setText("TimeIn");
-        TimeIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimeInActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download (1).jpg"))); // NOI18N
-
-        TimeOut.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TimeOut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TimeOut.setForeground(new java.awt.Color(0, 0, 153));
         TimeOut.setText("Timeout");
         TimeOut.setName(""); // NOI18N
         TimeOut.addActionListener(new java.awt.event.ActionListener() {
@@ -123,62 +139,41 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
                 TimeOutActionPerformed(evt);
             }
         });
+        jPanel1.add(TimeOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
+        TimeOut.getAccessibleContext().setAccessibleName("TimeOut");
+
+        TimeIn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TimeIn.setForeground(new java.awt.Color(0, 51, 153));
+        TimeIn.setText("TimeIn");
+        TimeIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeInActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TimeIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(DateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(78, 78, 78))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(DateTime1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TimeIn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TimeOut))
-                    .addComponent(EmployeeID)
-                    .addComponent(Password, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(DateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DateTime1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TimeIn)
-                    .addComponent(TimeOut))
-                .addGap(100, 100, 100))
+                .addGap(15, 15, 15)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
-
-        TimeOut.getAccessibleContext().setAccessibleName("TimeOut");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void TimeInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeInActionPerformed
         // TODO add your handling code here:
         
@@ -190,6 +185,11 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
         String DBpassword="";
         String fname="";
         String sname="";
+        
+         if ( EmployeeID.getText().isEmpty() ){
+         JOptionPane.showMessageDialog(null, "You did not enter any ID");
+          return; 
+        }
         
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -206,6 +206,7 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
                 
                 while(rs.next()){
                     int id = rs.getInt(1);
+                    
                     DBusername=rs.getString(2);
                     DBpassword=rs.getString(3);
                     fname=rs.getString("first_name");
@@ -217,7 +218,16 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
           
             
                 if(EnteredPassword.equals(DBpassword)){
+                    
                         String strDate = dateFormat.format(date);
+                        
+                        String val1= EmployeeID.getText();
+                        String val2="0";
+                        String val3=strDate;
+                                
+                         sql ="insert into TimeLogsRaw  (EmployeeID,Event,EventDate) values ('"+val1+"', '"+val2+"', '"+val3+"')" ;
+                        pst=conn.prepareStatement(sql);
+                        pst.execute();
                         JOptionPane.showMessageDialog(null, "Hello " + fname+" " + sname+". \n"+" You succssefully registered TimeIn at " +  strDate);
                                 
                       //  MainMenu j = new MainMenu();
@@ -249,7 +259,8 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
             }
         }
         
-        
+         EmployeeID.setText("");
+       Password.setText("");
         
                                             
 
@@ -259,6 +270,96 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
 
     private void TimeOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeOutActionPerformed
         // TODO add your handling code here:
+        
+            String sql = "SELECT U.id,U.username,U.Password,s.first_name,s.surname FROM staff_information s, Users U where s.ID=u.ID and s.ID=?";
+            
+        //comment
+        String EnteredPassword=Password.getText();
+        String DBusername;
+        String DBpassword="";
+        String fname="";
+        String sname="";
+        
+         if ( EmployeeID.getText().isEmpty() ){
+         JOptionPane.showMessageDialog(null, "You did not enter any ID");
+          return; 
+        }
+        
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        try{
+            
+            int count =0;
+            
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, EmployeeID.getText());
+         
+      
+            
+            rs = pst.executeQuery();
+                
+                while(rs.next()){
+                    int id = rs.getInt(1);
+                    
+                    DBusername=rs.getString(2);
+                    DBpassword=rs.getString(3);
+                    fname=rs.getString("first_name");
+                    sname=rs.getString("surname");
+                   
+                }
+            
+          
+          
+            
+                if(EnteredPassword.equals(DBpassword)){
+                    
+                        String strDate = dateFormat.format(date);
+                        
+                        String val1= EmployeeID.getText();
+                        String val2="1";
+                        String val3=strDate;
+                                
+                         sql ="insert into TimeLogsRaw  (EmployeeID,Event,EventDate) values ('"+val1+"', '"+val2+"', '"+val3+"')" ;
+                        pst=conn.prepareStatement(sql);
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Hello " + fname+" " + sname+". \n"+" You succssefully registered TimeOut at " +  strDate);
+                                
+                      //  MainMenu j = new MainMenu();
+                      //  j.setVisible(true);
+                      //  this.dispose();
+                   
+                }   
+                    else{
+                        JOptionPane.showMessageDialog(null, "ID and Password you entered are wrong!");
+                    }
+                
+            
+            
+        }
+        
+        catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, e);
+            
+        }
+        finally{
+            
+            try{
+                rs.close();
+                pst.close();
+            }
+            catch(Exception e){
+                
+            }
+        }
+        
+       EmployeeID.setText("");
+       Password.setText("");
+       
+                                            
+
+        
+        
     }//GEN-LAST:event_TimeOutActionPerformed
        
                      
@@ -303,13 +404,13 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DateTime;
     private javax.swing.JLabel DateTime1;
     private javax.swing.JTextField EmployeeID;
     private javax.swing.JPasswordField Password;
     private javax.swing.JButton TimeIn;
     private javax.swing.JButton TimeOut;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

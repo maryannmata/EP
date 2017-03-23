@@ -7,6 +7,34 @@ package employee.payroll;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.GrayColor;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import java.awt.Font;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.sql.PreparedStatement;
 
 
 /**
@@ -14,16 +42,24 @@ import java.awt.Toolkit;
  * @author Mata
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    
+    Connection conn=null;
+    ResultSet rs=null;
+    PreparedStatement pst=null;
+    
+    
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
+         conn=db.java_db();
+         
         Toolkit  toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth ()/2, size.height/2 - getHeight ()/2);
-        lbl_emp.setText(String.valueOf(Emp.empname).toString());
+       // lbl_emp.setText(String.valueOf(Emp.empname).toString());
+        
  
     }
 
@@ -39,16 +75,21 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jMenu3 = new javax.swing.JMenu();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        lbl_emp = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btn_update = new javax.swing.JButton();
-        btn_allowance = new javax.swing.JButton();
-        btn_deduction = new javax.swing.JButton();
         btn_addemployee = new javax.swing.JButton();
-        btn_search = new javax.swing.JButton();
-        btn_payment = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
+        jMenu4 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -74,195 +115,375 @@ public class MainMenu extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jMenu3.setText("jMenu3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Employee Payroll System");
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(java.awt.Color.white);
         setResizable(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("Logout");
+        jPanel1.setBackground(new java.awt.Color(61, 94, 94));
+        jPanel1.setLayout(null);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/minus-5-xxl.png"))); // NOI18N
+        jButton1.setText("Deductions");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        lbl_emp.setText("emp");
-
-        jLabel2.setText("Logged In As:");
-
-        btn_update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/g.png"))); // NOI18N
-        btn_update.setText("Update salary");
-        btn_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_updateActionPerformed(evt);
-            }
-        });
-
-        btn_allowance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_allowance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/32724.png"))); // NOI18N
-        btn_allowance.setText("Allowance");
-        btn_allowance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_allowanceActionPerformed(evt);
-            }
-        });
-
-        btn_deduction.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btn_deduction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/minus-5-xxl.png"))); // NOI18N
-        btn_deduction.setText("Deduction");
-        btn_deduction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deductionActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(210, 280, 180, 70);
 
         btn_addemployee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_addemployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/a.png"))); // NOI18N
-        btn_addemployee.setText("Add Employee");
+        btn_addemployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/addemployee.png"))); // NOI18N
+        btn_addemployee.setText("Employees");
         btn_addemployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_addemployeeActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_addemployee);
+        btn_addemployee.setBounds(80, 70, 180, 70);
 
-        btn_search.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/search2.png"))); // NOI18N
-        btn_search.setText("Search");
-        btn_search.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/download.png"))); // NOI18N
+        jButton2.setText("Allowance");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_searchActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(80, 180, 180, 70);
 
-        btn_payment.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_payment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/pay-payment-icon-9.png"))); // NOI18N
-        btn_payment.setText("Payment");
-        btn_payment.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/pay-payment-icon-9.png"))); // NOI18N
+        jButton3.setText("Pay Slip");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_paymentActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        setJMenuBar(jMenuBar1);
+        jPanel1.add(jButton3);
+        jButton3.setBounds(340, 180, 190, 70);
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/g.png"))); // NOI18N
+        jButton4.setText("Update Salary");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4);
+        jButton4.setBounds(340, 70, 190, 70);
+
+        jMenu1.setText("Employee");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Reports");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Employee RP");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jCheckBoxMenuItem1);
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Employee Total Allowance RP");
+        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jCheckBoxMenuItem2);
+
+        jCheckBoxMenuItem3.setSelected(true);
+        jCheckBoxMenuItem3.setText("Employee Total Deduction RP");
+        jMenu2.add(jCheckBoxMenuItem3);
+
+        jMenuBar2.add(jMenu2);
+
+        jMenu4.setText("About");
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_addemployee)
-                    .addComponent(btn_allowance, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_deduction, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_update)
-                    .addComponent(btn_payment, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(140, 140, 140))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_emp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_addemployee)
-                    .addComponent(btn_update))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_deduction)
-                    .addComponent(btn_payment))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_allowance)
-                    .addComponent(btn_search))
-                .addGap(60, 60, 60)
-                .addComponent(jButton1)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_emp)
-                    .addComponent(jLabel2))
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        btn_update.getAccessibleContext().setAccessibleName("Upadate Salary");
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
         // TODO add your handling code here:
-        //Logout MainMenu buton code here:
+        JFileChooser dialog = new JFileChooser();
+        dialog.setSelectedFile(new File("Employee Report.pdf"));
+        int dialogResult = dialog.showSaveDialog(null);
+        if(dialogResult==JFileChooser.APPROVE_OPTION){
+        String filePath = dialog.getSelectedFile().getPath();
         
-        login x = new login();
-        x.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        try{
+            
+            String sql = "select id,first_name,surname,dob,address,gender,date_hired,posistion,department,salary from Staff_information";
+            
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            Document myDocument= new Document();
+            PdfWriter myWriter = PdfWriter.getInstance(myDocument, new FileOutputStream(filePath));
+            PdfPTable table = new PdfPTable(10);
+            myDocument.open();
+            
+            float[] columnWidths = new float[] {3, 8, 7, 5, 5,9,8,9,9,6};
+            table.setWidths(columnWidths);
+            
+            table.setWidthPercentage(100);
+            
+            myDocument.add(new Paragraph("Employee List",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD)));
+           // Date di = new Date();
+           // Date.
+            myDocument.add(new Paragraph(new Date().toString()));
+            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
+                table.addCell(new PdfPCell(new Paragraph("ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("First Name",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Surname",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Date of Birth",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Address",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Gender",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Date Hired",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Posistion",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Department",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Salary",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
+                
+               while(rs.next())
+                 
+                {
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(1),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(2),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(3),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(4),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(5),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(6),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(7),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(8),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(9),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+               table.addCell(new PdfPCell(new Paragraph(rs.getString(10),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                
+               
+}
+        
+        
+                myDocument.add(table);
+                myDocument.add(new Paragraph("-----------------------------------------------------------------------------------------------"));
+                myDocument.close();
+                JOptionPane.showMessageDialog(null, "Report was successfully generated");
+        }
 
-    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
-        // TODO add your handling code here:
-        
-                        UpdateSalary b = new UpdateSalary();
-                        b.setVisible(true);
-                        this.dispose();
-                        
-    }//GEN-LAST:event_btn_updateActionPerformed
 
-    private void btn_deductionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deductionActionPerformed
-        // TODO add your handling code here:
-        
-                        Allowance a = new Allowance();
-                        a.setVisible(true);
-                        this.dispose();
+                
+
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+
+                }
+         
+               finally{
+                try{
+                    rs.close();
+                    pst.close();
+}
+              catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
                         
-    }//GEN-LAST:event_btn_deductionActionPerformed
+                }
+                
+        }
+        }
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+        // TODO add your handling code here:
+
+          JFileChooser dialog = new JFileChooser();
+        dialog.setSelectedFile(new File("Employee Report.pdf"));
+        int dialogResult = dialog.showSaveDialog(null);
+        if(dialogResult==JFileChooser.APPROVE_OPTION){
+        String filePath = dialog.getSelectedFile().getPath();
+        
+        try{
+           
+            String sql = "select id,overtime,medical,bonus,other,emp_id,salary,rate,total_allowance,firstname,surname from Allowance ";
+
+
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            Document myDocument= new Document();
+            PdfWriter myWriter = PdfWriter.getInstance(myDocument, new FileOutputStream(filePath));
+            PdfPTable table = new PdfPTable(11);
+            myDocument.open();
+            
+            float[] columnWidths = new float[] {3, 8, 7, 5, 5,9,8,9,8,6,6};
+            table.setWidths(columnWidths);
+            
+            table.setWidthPercentage(100);
+            
+            myDocument.add(new Paragraph("Employee Allowance List",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD)));
+            myDocument.add(new Paragraph(new Date().toString()));
+            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
+                table.addCell(new PdfPCell(new Paragraph("ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Overtime",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Medical",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Bonus",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Other",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Employee ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Salary",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Rate",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Allowance",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("First Name",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+                table.addCell(new PdfPCell(new Paragraph("Surname",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
+ 
+                while(rs.next())
+                {
+                  
+                //    String dept_id = query_set.getString("DEPARTMENT_ID");
+                 //               table_cell=new PdfPCell(new Phrase(dept_id));
+                  //              my_report_table.addCell(table_cell);
+                    
+                    
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(1),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+              //  table.addCell(new Paragraph(rs.getString(1),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN)));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(2),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(3),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(4),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(5),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(6),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(7),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(8),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(9),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(10),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                table.addCell(new PdfPCell(new Paragraph(rs.getString(11),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+               // table.addCell(new PdfPCell(new Paragraph(rs.getString(12),FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.PLAIN))));
+                 
+                }
+
+        
+                myDocument.add(table);
+                myDocument.add(new Paragraph("-----------------------------------------------------------------------------------------------"));
+                myDocument.close();
+                JOptionPane.showMessageDialog(null, "Report was successfully generated");
+}
+
+
+                catch (Exception e){
+                JOptionPane.showMessageDialog(null, e);
+
+                }
+            finally{
+                try{
+                    rs.close();
+                    pst.close();
+}
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+
+}
+}
+}
+
+       
+    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
 
     private void btn_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addemployeeActionPerformed
-  // TODO add your handling code here:
-  
-              
+        // TODO add your handling code here:
+        
                         addEmployee j = new addEmployee();
+                       // j.setM
                         j.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
                         
-  
     }//GEN-LAST:event_btn_addemployeeActionPerformed
 
-    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_btn_searchActionPerformed
+                        deductions d = new deductions();
+                       // j.setM
+                        d.setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+                        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btn_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_paymentActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-                        searchempsalary c = new searchempsalary();
-                        c.setVisible(true);
+                        Allowance a = new Allowance();
+                       // j.setM
+                        a.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
                         
         
-    }//GEN-LAST:event_btn_paymentActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btn_allowanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_allowanceActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-                        Allowance d = new Allowance();
-                        d.setVisible(true);
+                        searchempsalary e = new searchempsalary();
+                       // j.setM
+                        e.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
-    }//GEN-LAST:event_btn_allowanceActionPerformed
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+                          UpdateSalary u = new UpdateSalary();
+                       // j.setM
+                        u.setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,17 +522,22 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addemployee;
-    private javax.swing.JButton btn_allowance;
-    private javax.swing.JButton btn_deduction;
-    private javax.swing.JButton btn_payment;
-    private javax.swing.JButton btn_search;
-    private javax.swing.JButton btn_update;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JLabel lbl_emp;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

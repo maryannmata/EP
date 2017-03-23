@@ -35,7 +35,7 @@ public class login extends javax.swing.JFrame {
         txt_combo.setVisible(false);
         jLabel4.setVisible(false);
         setLocation(size.width/2 - getWidth ()/2, size.height/2 - getHeight ()/2);
- 
+        this.setResizable(Boolean.FALSE);
 
         conn = db.java_db();
         currentDate();
@@ -79,9 +79,12 @@ public class login extends javax.swing.JFrame {
         txt_combo = new javax.swing.JComboBox<>();
         txt_username = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         lbl_date = new javax.swing.JMenu();
         lbl_time = new javax.swing.JMenu();
 
@@ -91,33 +94,36 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login Window");
+        setBackground(new java.awt.Color(51, 51, 51));
+        setForeground(java.awt.Color.pink);
         setSize(new java.awt.Dimension(300, 500));
 
+        jPanel3.setBackground(new java.awt.Color(61, 94, 94));
         jPanel3.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Orator Std", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Please enter your username and password:");
+        jLabel1.setText("SYSTEM");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(30, 130, 310, 30);
+        jLabel1.setBounds(300, 70, 180, 80);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username:");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(30, 200, 80, 15);
+        jLabel2.setBounds(70, 220, 90, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(30, 250, 80, 15);
+        jLabel3.setBounds(70, 270, 80, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Select Division:");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(30, 290, 92, 15);
+        jLabel4.setBounds(50, 360, 92, 15);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Login");
@@ -127,7 +133,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(230, 320, 90, 23);
+        jButton1.setBounds(430, 310, 90, 23);
 
         txt_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Sales" }));
         txt_combo.setEnabled(false);
@@ -137,7 +143,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txt_combo);
-        txt_combo.setBounds(130, 280, 190, 30);
+        txt_combo.setBounds(150, 350, 190, 30);
 
         txt_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,18 +151,37 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txt_username);
-        txt_username.setBounds(130, 180, 190, 30);
+        txt_username.setBounds(150, 220, 370, 30);
 
         txt_password.setText("jPasswordField1");
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
         jPanel3.add(txt_password);
-        txt_password.setBounds(130, 230, 190, 30);
+        txt_password.setBounds(150, 270, 370, 30);
+        jPanel3.add(jSeparator1);
+        jSeparator1.setBounds(0, 170, 550, 10);
+        jPanel3.add(jSeparator2);
+        jSeparator2.setBounds(0, 340, 550, 10);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee/payroll/images/maxresdefault.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mata\\Desktop\\logo.jpg")); // NOI18N
+        jLabel6.setText("jLabel6");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(-20, -30, 610, 520);
+        jLabel6.setBounds(80, 20, 160, 130);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Please enter your username and password:");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(70, 180, 310, 30);
+
+        jLabel7.setFont(new java.awt.Font("Orator Std", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("PAYROLL");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(290, 20, 210, 80);
 
         lbl_date.setText("Date");
         jMenuBar1.add(lbl_date);
@@ -170,16 +195,16 @@ public class login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -188,7 +213,7 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //Login button code here:
-     
+ 
         String sql = "select id,username,password,division from Users where(username=? and password =? )";
         //comment
         try{
@@ -260,6 +285,10 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usernameActionPerformed
 
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
     private void txt_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_comboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_comboActionPerformed
@@ -305,12 +334,15 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JMenu lbl_date;
     private javax.swing.JMenu lbl_time;
     private javax.swing.JComboBox<String> txt_combo;

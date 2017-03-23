@@ -109,26 +109,25 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Login");
         setBackground(new java.awt.Color(0, 0, 153));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 500));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(61, 94, 94));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DateTime1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DateTime1.setForeground(new java.awt.Color(255, 255, 255));
         DateTime1.setText("Employee ID:");
-        jPanel1.add(DateTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 110, 130, 26));
-        jPanel1.add(EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 220, 30));
+        jPanel1.add(DateTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 130, 26));
+        jPanel1.add(EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 220, 30));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Password:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 130, -1));
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 220, 31));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 130, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 220, 31));
 
         TimeOut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TimeOut.setForeground(new java.awt.Color(0, 0, 153));
@@ -139,7 +138,7 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
                 TimeOutActionPerformed(evt);
             }
         });
-        jPanel1.add(TimeOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
+        jPanel1.add(TimeOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
         TimeOut.getAccessibleContext().setAccessibleName("TimeOut");
 
         TimeIn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -150,23 +149,19 @@ public class PayrollTimeLogger extends javax.swing.JFrame {
                 TimeInActionPerformed(evt);
             }
         });
-        jPanel1.add(TimeIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 100, -1));
+        jPanel1.add(TimeIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
         );
 
         pack();

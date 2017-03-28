@@ -384,10 +384,12 @@ PreparedStatement pst = null;
                 String sql = "select * from Deductions where emp_id = '"+value1+"'";
                  pst=conn.prepareStatement(sql);
                 rs=pst.executeQuery();
-                
-                String val = rs.getString(5);
-                String reason = rs.getString(6);
-                
+                float val=0;
+                String reason="";
+                 while(rs.next()){ 
+                 val = rs.getFloat(5);
+                 reason = rs.getString(6);
+                 }
                rs.close();
                pst.close();
                 float total=0;
